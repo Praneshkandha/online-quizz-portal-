@@ -1,0 +1,413 @@
+:root {
+  color-scheme: light;
+  --ink: #1b1f2a;
+  --muted: #626b7a;
+  --line: #dbe2ea;
+  --panel: #ffffff;
+  --paper: #f4f7fb;
+  --green: #147a64;
+  --green-dark: #0c5f4d;
+  --coral: #f26d5b;
+  --gold: #f0b429;
+  --blue: #276ef1;
+  --shadow: 0 20px 60px rgba(31, 42, 68, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(120deg, rgba(20, 122, 100, 0.12), rgba(242, 109, 91, 0.12)),
+    var(--paper);
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) 1fr;
+  gap: 24px;
+  width: min(1180px, calc(100% - 32px));
+  margin: 32px auto;
+}
+
+.intro-panel,
+.workspace,
+.panel,
+.quiz-area {
+  border: 1px solid rgba(219, 226, 234, 0.9);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.intro-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 64px);
+  padding: 32px;
+  border-radius: 8px;
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background: var(--green);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--green-dark);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 4.6rem);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+.intro-copy {
+  margin: 40px 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.progress-list {
+  display: grid;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.progress-item span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #eef3f8;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.progress-item.active span {
+  background: var(--coral);
+  color: #fff;
+}
+
+.progress-item p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.workspace {
+  min-height: calc(100vh - 64px);
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.setup-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.panel {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 22px;
+  border-radius: 8px;
+}
+
+legend {
+  padding: 0 8px;
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+label {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfdff;
+  color: var(--ink);
+  padding: 12px 14px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(20, 122, 100, 0.12);
+}
+
+textarea {
+  min-height: 230px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.source-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 1fr;
+  gap: 16px;
+  align-items: end;
+}
+
+.hint,
+.score-output {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.actions,
+.result-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.button.primary {
+  background: var(--green);
+  color: #fff;
+}
+
+.button.primary:hover {
+  background: var(--green-dark);
+}
+
+.button.secondary {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+}
+
+.quiz-area {
+  margin-top: 22px;
+  padding: 22px;
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.quiz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.student-pill {
+  max-width: 320px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: #fff;
+  color: var(--muted);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.level-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #eef3f8;
+}
+
+.tab {
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  padding: 11px 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #fff;
+  color: var(--green-dark);
+  box-shadow: 0 6px 18px rgba(31, 42, 68, 0.1);
+}
+
+.questions {
+  display: grid;
+  gap: 14px;
+}
+
+.question-card {
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--blue);
+  border-radius: 8px;
+  background: #fff;
+  padding: 18px;
+}
+
+.question-card.medium {
+  border-left-color: var(--gold);
+}
+
+.question-card.hard {
+  border-left-color: var(--coral);
+}
+
+.question-card h3 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.option {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 8px 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.option input {
+  width: auto;
+  margin-top: 4px;
+}
+
+.answer-note {
+  display: none;
+  margin: 12px 0 0;
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.show-answer .answer-note {
+  display: block;
+}
+
+.result-bar {
+  margin-top: 18px;
+  justify-content: space-between;
+}
+
+.score-output {
+  min-height: 24px;
+  font-weight: 800;
+}
+
+@media (max-width: 860px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    margin: 16px auto;
+  }
+
+  .intro-panel,
+  .workspace {
+    min-height: auto;
+  }
+
+  .source-row {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .app-shell {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .intro-panel,
+  .workspace,
+  .panel,
+  .quiz-area {
+    padding: 16px;
+  }
+
+  .actions,
+  .result-bar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button,
+  .student-pill {
+    width: 100%;
+  }
+}

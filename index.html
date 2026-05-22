@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizerr | Online Quiz Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="intro-panel" aria-labelledby="app-title">
+      <div class="brand-row">
+        <div class="brand-mark">Q</div>
+        <div>
+          <p class="eyebrow">Online quiz portal</p>
+          <h1 id="app-title">Quizerr</h1>
+        </div>
+      </div>
+
+      <p class="intro-copy">
+        Generate a quiz from your study source, paste notes, or upload a PDF.
+        Questions are grouped into Easy, Medium, and Hard levels.
+      </p>
+
+      <div class="progress-list" aria-label="Quizerr steps">
+        <div class="progress-item active">
+          <span>1</span>
+          <p>Enter student details</p>
+        </div>
+        <div class="progress-item">
+          <span>2</span>
+          <p>Add source material</p>
+        </div>
+        <div class="progress-item">
+          <span>3</span>
+          <p>Answer leveled questions</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Quiz builder">
+      <form id="quiz-form" class="setup-grid">
+        <fieldset class="panel">
+          <legend>Your information</legend>
+          <label for="student-name">Name</label>
+          <input id="student-name" name="student-name" type="text" placeholder="Enter your full name" autocomplete="name" required>
+
+          <label for="student-email">Email</label>
+          <input id="student-email" name="student-email" type="email" placeholder="name@example.com" autocomplete="email" required>
+        </fieldset>
+
+        <fieldset class="panel">
+          <legend>Source for questions</legend>
+          <label for="source-title">Source title</label>
+          <input id="source-title" name="source-title" type="text" placeholder="Example: Biology chapter 3">
+
+          <div class="source-row">
+            <div>
+              <label for="pdf-file">Upload PDF</label>
+              <input id="pdf-file" name="pdf-file" type="file" accept="application/pdf">
+            </div>
+            <p id="pdf-status" class="hint">Or paste your source below.</p>
+          </div>
+
+          <label for="source-text">Source text</label>
+          <textarea id="source-text" name="source-text" rows="10" placeholder="Paste a paragraph, notes, textbook content, or lesson summary here..." required></textarea>
+        </fieldset>
+
+        <div class="actions">
+          <button class="button secondary" type="button" id="sample-btn">Use sample source</button>
+          <button class="button primary" type="submit">Generate Quiz</button>
+        </div>
+      </form>
+
+      <section id="quiz-area" class="quiz-area hidden" aria-live="polite">
+        <div class="quiz-header">
+          <div>
+            <p class="eyebrow">Generated quiz</p>
+            <h2 id="quiz-title">Questions</h2>
+          </div>
+          <div class="student-pill" id="student-pill"></div>
+        </div>
+
+        <div class="level-tabs" role="tablist" aria-label="Difficulty levels">
+          <button class="tab active" type="button" data-level="easy">Easy</button>
+          <button class="tab" type="button" data-level="medium">Medium</button>
+          <button class="tab" type="button" data-level="hard">Hard</button>
+        </div>
+
+        <div id="questions" class="questions"></div>
+
+        <div class="result-bar">
+          <button class="button secondary" type="button" id="reset-btn">Start over</button>
+          <button class="button primary" type="button" id="score-btn">Check score</button>
+          <p id="score-output" class="score-output"></p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
